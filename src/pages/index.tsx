@@ -16,6 +16,8 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <h1 className="text-xl text-white">hola panchis</h1>
         <p className="text-white">los relatos de una panch - por sandra f.f.</p>
+        <p className="text-white">los relatos de una panch - por sandra f.f.</p>
+        <p className="text-white">testing de funcionamiento</p>
       </main>
     </>
   );
