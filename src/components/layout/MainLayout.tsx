@@ -27,12 +27,12 @@ const DefaultLayout: React.FC<WithClassName<MainLayoutProps>> = ({
 
     <div
       className={twMerge(
-        "bg-mainLight dark:bg-mainDark text-mainGray mx-auto flex min-h-screen flex-col px-7 pt-5 md:px-10 lg:w-full xl:px-32",
+        "mx-auto flex min-h-screen flex-col lg:w-full ",
         className,
       )}
     >
       <Header />
-      <main className="">{children}</main>
+      <main>{children}</main>
     </div>
   </>
 );
