@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import ReactSimplyCarousel from "react-simply-carousel";
 
 import Image from "next/image";
-import Arrow from "../icons/Arrow";
-import SvgWrapper from "./SvgWrapper";
 import TitleWriter from "./TitleWriter";
 import UseParallax from "../../hooks/UseParallax";
+import useTheme from "../../hooks/UseTheme";
 
 interface itemCarousel {
   src: string;
   label: string;
+  country: string;
   alt: string;
   index: number;
 }
@@ -19,15 +19,16 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({ items }) => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+
   const translateY = UseParallax();
+  const { theme } = useTheme();
 
   return (
     <div className="relative h-screen">
-      {/* <span className="absolute top-0 z-10 block h-[20%] w-full bg-gradient-to-b from-[#110611] to-transparent" /> */}
       <ReactSimplyCarousel
         autoplay
-        autoplayDelay={7999}
         key={items.length}
+        autoplayDelay={7999}
         activeSlideIndex={activeSlideIndex}
         onRequestChange={setActiveSlideIndex}
         itemsToShow={1}
@@ -36,26 +37,6 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
         containerProps={{
           className: "relative !h-full !w-full",
         }}
-        // forwardBtnProps={{
-        //   show: true,
-        //   className:
-        //     "mx-5 md:mx-10 absolute top-2/4 -translate-y-[30px] right-0 z-30 flex h-6 sm:h-10 w-6 sm:w-10 items-center justify-center rounded-full border-2 border-white/70 bg-white/10 transition-all duration-300 hover:border-white hover:bg-white/50 cursor-pointer group focus:outline-none",
-        //   children: (
-        //     <SvgWrapper className="ml-[1px] w-4 -rotate-90  stroke-white/70 transition-all duration-300 group-hover:stroke-white sm:w-7">
-        //       <Arrow />
-        //     </SvgWrapper>
-        //   ),
-        // }}
-        // backwardBtnProps={{
-        //   show: true,
-        //   className:
-        //     "mx-5 md:mx-10 absolute top-2/4 -translate-y-[30px] left-0 z-30 flex h-6 sm:h-10 w-6 sm:w-10 items-center justify-center rounded-full border-2 border-white/70 bg-white/10 transition-all duration-300 hover:border-white hover:bg-white/50 cursor-pointer group focus:outline-none",
-        //   children: (
-        //     <SvgWrapper className="-ml-[2px] w-4 rotate-90 stroke-white/70 transition-all duration-300 group-hover:stroke-white sm:w-7">
-        //       <Arrow />
-        //     </SvgWrapper>
-        //   ),
-        // }}
         dotsNav={{
           show: items.length > 1,
           containerProps: {
@@ -68,7 +49,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           },
           activeItemBtnProps: {
             className:
-              "w-5 sm:w-6 h-[6px] rounded-full bg-rose-400 border border-[#110611]/70",
+              "w-5 sm:w-6 h-[6px] rounded-full bg-primary border border-[#110611]/70",
           },
         }}
         speed={0}
@@ -76,7 +57,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
         disableSwipeByMouse={!(items.length > 1)}
         disableSwipeByTouch={!(items.length > 1)}
       >
-        {items.map(({ src, label, alt, index }) => (
+        {items.map(({ src, label, alt, index, country }) => (
           <div key={index} className="relative h-full w-full min-w-[100vw]">
             {activeSlideIndex === index && (
               <div
@@ -89,17 +70,25 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
                 <TitleWriter text={label} />
               </div>
             )}
+
             <Image
               aria-current={activeSlideIndex}
               alt={alt}
-              src={`/img/${src}`}
+              src={`/img/${theme}/${src}`}
               width={1200}
               height={600}
               className={`absolute top-0 h-full w-full object-cover opacity-40${activeSlideIndex === index ? " animate-grown" : ""}`}
             />
+            <p className="text-2.5xs absolute bottom-14 right-8 z-10 w-fit text-right font-light tracking-[1.5px] text-white/80 md:right-11 lg:right-16 2xl:right-36">
+              {alt}
+              <span className="ml-1 font-medium">
+                (<strong> {country} </strong>)
+              </span>
+            </p>
           </div>
         ))}
       </ReactSimplyCarousel>
+
       <h2
         className="absolute left-2/4 top-2/4 z-20 -mt-10 w-fit -translate-x-2/4 -translate-y-2/4 font-serif text-7xl  font-bold text-white"
         style={{

@@ -10,8 +10,9 @@ module.exports = {
         width: "width",
       },
       colors: {
-        primary: "#F3BA10",
-        secondary: "#0B64A8",
+        primary: "#fb7185",
+        fromDark: "#110611",
+        toDark: "#110611",
         darkpurple: "#1D1A31",
         cultured: "#F6F8FA",
         mainDark: "#0f0f25",
@@ -49,6 +50,13 @@ module.exports = {
           ".6rem",
           {
             lineHeight: ".55rem",
+            letterSpacing: ".5px",
+          },
+        ],
+        "2.5xs": [
+          ".7rem",
+          {
+            lineHeight: ".65rem",
             letterSpacing: ".5px",
           },
         ],

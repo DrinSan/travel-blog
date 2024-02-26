@@ -7,25 +7,28 @@ export default function Home() {
 
   return (
     <>
-      <MainLayout className="bg-gradient-to-b from-[#110611] to-[#110611]">
+      <MainLayout className="dark:from-fromDark bg-white dark:bg-gradient-to-b dark:to-[#110611]">
         <Carousel
           items={[
             {
               src: "viaje1.jpeg",
               label: "Culturas únicas",
-              alt: "caldereros de Fez (Marruecos)",
+              alt: "Caldereros de Fez",
+              country: "Marruecos",
               index: 0,
             },
             {
               src: "viaje2.jpeg",
               label: "Vivencias inolvidables",
-              alt: "mercado marrakech (Marruecos)",
+              alt: "Mercado en Marrakech",
+              country: "Marruecos",
               index: 1,
             },
             {
               src: "viaje3.jpeg",
               label: "Lugares de ensueño",
-              alt: "caldereros de Fez (Marruecos)",
+              alt: "Mujeres del Argán en el Atlas",
+              country: "Marruecos",
               index: 2,
             },
           ]}

@@ -11,6 +11,10 @@ export type WithChildren<T = unknown> = {
 } & T;
 export type WithViewBox<T = unknown> = { viewBox?: string } & T;
 export type Theme = "light" | "dark";
+export interface ThemeInfo {
+  theme: Theme;
+  img: React.ReactNode;
+}
 
 export interface ThemeSelectorProps {
   active?: boolean;
