@@ -28,7 +28,7 @@ const useTheme = () => {
       }
     }
   }, []);
-
+  console.log("valor de theme", theme);
   return { theme, toggleTheme };
 };
 

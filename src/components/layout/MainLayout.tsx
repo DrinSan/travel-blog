@@ -1,15 +1,20 @@
 import { twMerge } from "tailwind-merge";
-import { MainLayoutProps, WithClassName } from "~/model/react";
+import { MainLayoutProps, Theme, WithClassName } from "~/model/react";
 import Head from "next/head";
 import Header from "./Header";
-
-const DefaultLayout: React.FC<WithClassName<MainLayoutProps>> = ({
+interface LayoutPros {
+  toggleTheme: () => void;
+  theme: Theme;
+}
+const MainLayout: React.FC<WithClassName<MainLayoutProps & LayoutPros>> = ({
   children,
   title,
   description,
   lang,
   image,
   className,
+  toggleTheme,
+  theme,
 }) => (
   <>
     {title && (
@@ -31,10 +36,10 @@ const DefaultLayout: React.FC<WithClassName<MainLayoutProps>> = ({
         className,
       )}
     >
-      <Header />
+      <Header toggleTheme={toggleTheme} theme={theme} />
       <main>{children}</main>
     </div>
   </>
 );
 
-export default DefaultLayout;
+export default MainLayout;

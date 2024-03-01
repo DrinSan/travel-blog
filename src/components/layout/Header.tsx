@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import useTheme from "../../hooks/UseTheme";
-import { ThemeInfo } from "../../model/react";
+import { Theme, ThemeInfo } from "../../model/react";
 import SvgWrapper from "../basic/SvgWrapper";
 import Dark from "../icons/Dark";
 import Light from "../icons/Light";
 import NavItem from "./NavItem";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  toggleTheme: () => void;
+  theme: Theme;
+}
+const Header: React.FC<HeaderProps> = ({ toggleTheme, theme }) => {
   const [alpha, setAlpha] = useState(0);
-  const { theme, toggleTheme } = useTheme();
 
   const themes: ThemeInfo[] = [
     {

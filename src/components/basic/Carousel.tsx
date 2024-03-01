@@ -15,13 +15,13 @@ interface itemCarousel {
 }
 interface CarouselProps {
   items: itemCarousel[];
+  theme: string;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ items }) => {
+const Carousel: React.FC<CarouselProps> = ({ items, theme }) => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   const translateY = UseParallax();
-  const { theme } = useTheme();
 
   return (
     <div className="relative h-screen">
@@ -70,16 +70,26 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
                 <TitleWriter text={label} />
               </div>
             )}
-
-            <Image
-              aria-current={activeSlideIndex}
-              alt={alt}
-              src={`/img/${theme}/${src}`}
-              width={1200}
-              height={600}
-              className={`absolute top-0 h-full w-full object-cover opacity-40${activeSlideIndex === index ? " animate-grown" : ""}`}
-            />
-            <p className="text-2.5xs absolute bottom-14 right-8 z-10 w-fit text-right font-light tracking-[1.5px] text-white/80 md:right-11 lg:right-16 2xl:right-36">
+            {theme === "dark" ? (
+              <Image
+                aria-current={activeSlideIndex}
+                alt={alt}
+                src={`/img/dark/${src}`}
+                width={1200}
+                height={600}
+                className={`absolute top-0 h-full w-full object-cover opacity-40${activeSlideIndex === index ? " animate-grown" : ""}`}
+              />
+            ) : (
+              <Image
+                aria-current={activeSlideIndex}
+                alt={alt}
+                src={`/img/light/${src}`}
+                width={1200}
+                height={600}
+                className={`absolute top-0 h-full w-full object-cover opacity-60${activeSlideIndex === index ? " animate-grown" : ""}`}
+              />
+            )}
+            <p className="absolute bottom-14 right-8 z-10 w-fit text-right text-2.5xs font-light tracking-[1.5px] text-white/80 md:right-11 lg:right-16 2xl:right-36">
               {alt}
               <span className="ml-1 font-medium">
                 (<strong> {country} </strong>)
