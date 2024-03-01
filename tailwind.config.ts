@@ -74,8 +74,7 @@ module.exports = {
           "100%": { opacity: "0%" },
         },
         grown: {
-          "90%, 100%": { transform: "scale(1.1)" },
-          "99%, 100%": { opacity: "5%" },
+          "100%": { transform: "scale(1.2)", opacity: "8%" },
         },
         write: {
           "0%": { opacity: "100%" },

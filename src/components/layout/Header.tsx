@@ -51,13 +51,20 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, theme }) => {
 
   return (
     <header
-      className="bo fixed left-0 top-0 z-40 flex w-full items-center justify-between border-b border-white/10 px-7 py-2 backdrop-blur-[2px] md:px-10 lg:px-14 2xl:px-32"
-      style={{
-        backgroundColor: `rgba(17, 6, 17, ${alpha})`,
-        transition: "background-color 0.05s linear", // Agregamos una transición suave
-      }}
+      className="bo fixed left-0 top-0 z-40 flex w-full items-center justify-between border-b border-fromDark/20 px-7 py-2 backdrop-blur-[2px] dark:border-white/10 md:px-10 lg:px-14 2xl:px-32"
+      style={
+        theme === "dark"
+          ? {
+              backgroundColor: `rgba(17, 6, 17, ${alpha})`,
+              transition: "background-color 0.05s linear", // Agregamos una transición suave
+            }
+          : {
+              backgroundColor: `rgba(255, 255, 255, ${alpha})`,
+              transition: "background-color 0.05s linear", // Agregamos una transición suave
+            }
+      }
     >
-      <a href="index" className="w-fit text-2xl text-gray-500 dark:text-white">
+      <a href="index" className="w-fit text-2xl text-fromDark dark:text-white">
         Soy Un Logo
       </a>
       <div className="flex gap-3">

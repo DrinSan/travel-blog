@@ -24,7 +24,7 @@ const NavItem: React.FC<NavItemsProps> = ({ items, selectedOption }) => {
         <li
           aria-current={activeOption}
           key={title}
-          className="py-2 text-white transition-all duration-200 hover:brightness-75"
+          className="py-2 text-sm tracking-widest text-fromDark transition-all duration-200 hover:brightness-75 dark:text-white"
         >
           <a href={href}>{title}</a>
         </li>

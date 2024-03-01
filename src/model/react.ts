@@ -1,3 +1,8 @@
+import {
+  NextComponentType,
+  NextPageContext,
+} from "../../node_modules/next/dist/shared/lib/utils";
+
 export interface MainLayoutProps {
   children?: React.ReactElement | (React.ReactElement | boolean | string)[];
   title?: string;
@@ -19,3 +24,8 @@ export interface ThemeInfo {
 export interface ThemeSelectorProps {
   active?: boolean;
 }
+export type NextPage<Props = {}, InitialProps = Props> = NextComponentType<
+  NextPageContext,
+  InitialProps,
+  Props
+>;

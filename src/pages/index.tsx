@@ -3,9 +3,9 @@ import { api } from "~/utils/api";
 import Carousel from "../components/basic/Carousel";
 import MainLayout from "../components/layout/MainLayout";
 import useTheme from "../hooks/UseTheme";
+import { NextPage } from "../model/react";
 
-export default function Home() {
-  const hello = api.post.hello.useQuery({ text: "from tRPC" });
+const Index: NextPage = () => {
   const { theme, toggleTheme } = useTheme();
 
   // useEffect(() => {
@@ -17,6 +17,8 @@ export default function Home() {
   return (
     <>
       <MainLayout
+        description="pagina de viajes de aventura fuera de ruta"
+        title="viajando-home"
         theme={theme}
         toggleTheme={toggleTheme}
         className="bg-white dark:bg-gradient-to-b dark:from-fromDark dark:to-[#110611]"
@@ -25,21 +27,21 @@ export default function Home() {
           theme={theme}
           items={[
             {
-              src: "viaje1.jpeg",
+              src: "viaje_Marruecos.jpg",
               label: "Culturas únicas",
               alt: "Caldereros de Fez",
               country: "Marruecos",
               index: 0,
             },
             {
-              src: "viaje2.jpeg",
+              src: "viaje2_Marruecos.jpg",
               label: "Vivencias inolvidables",
               alt: "Mercado en Marrakech",
               country: "Marruecos",
               index: 1,
             },
             {
-              src: "viaje3.jpeg",
+              src: "viaje3_Marruecos.jpg",
               label: "Lugares de ensueño",
               alt: "Mujeres del Argán en el Atlas",
               country: "Marruecos",
@@ -75,4 +77,6 @@ export default function Home() {
       </MainLayout>
     </>
   );
-}
+};
+
+export default Index;
