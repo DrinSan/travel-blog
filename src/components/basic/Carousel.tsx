@@ -26,7 +26,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, theme }) => {
   const translateY = UseParallax();
 
   return (
-    <div className="relative h-screen">
+    <div className="relative z-10 h-screen">
       <ReactSimplyCarousel
         autoplay
         key={items.length}
@@ -81,25 +81,17 @@ const Carousel: React.FC<CarouselProps> = ({ items, theme }) => {
                 <TitleWriter text={label} />
               </div>
             )}
-            {theme === "dark" ? (
-              <Image
-                aria-current={activeSlideIndex}
-                alt={alt}
-                src={`/img/dark/${src}`}
-                width={1400}
-                height={1013}
-                className={`absolute top-0 h-full w-full object-cover opacity-35${activeSlideIndex === index ? " animate-grown" : ""}`}
-              />
-            ) : (
-              <Image
-                aria-current={activeSlideIndex}
-                alt={alt}
-                src={`/img/light/${src}`}
-                width={1400}
-                height={1013}
-                className={`absolute top-0 h-full w-full object-cover opacity-70${activeSlideIndex === index ? " animate-grown" : ""}`}
-              />
-            )}
+
+            <Image
+              loading="lazy"
+              aria-current={activeSlideIndex}
+              alt={alt}
+              src={`/img/dark/${src}`}
+              width={1400}
+              height={1013}
+              className={`absolute top-0 h-full w-full object-cover ${theme === "dark" ? " opacity-40" : " opacity-70"}${activeSlideIndex === index ? (theme === "dark" ? " animate-grownDark" : " animate-grown") : ""}`}
+            />
+
             <p className="absolute bottom-14 right-6 z-10 w-fit rounded-md bg-fromDark/50 p-1 px-2 text-right text-2.5xs font-light tracking-[1.5px] text-white dark:text-white/80 md:right-9 lg:right-14 2xl:right-32">
               {alt}
               <span className="ml-1 font-medium">

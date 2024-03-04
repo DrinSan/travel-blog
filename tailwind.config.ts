@@ -73,8 +73,18 @@ module.exports = {
           "0%": { opacity: "100%" },
           "100%": { opacity: "0%" },
         },
+        fadeDark: {
+          "0%": { opacity: "0%" },
+          "2%": { opacity: "40%" },
+          "100%": { opacity: "10%" },
+        },
+        fade: {
+          "0%": { opacity: "0%" },
+          "2%": { opacity: "70%" },
+          "100%": { opacity: "30%" },
+        },
         grown: {
-          "100%": { transform: "scale(1.2)", opacity: "8%" },
+          "100%": { transform: "scale(1.25)" },
         },
         write: {
           "0%": { opacity: "100%" },
@@ -87,6 +97,8 @@ module.exports = {
       animation: {
         write: "write .6s linear infinite",
         fadeOut: "fadeOut 1.5s linear",
+        fade: "fade 8s linear",
+        fadeDark: "fadeDark 8s linear",
         grown: "grown 8s linear",
       },
       transitionDuration: {

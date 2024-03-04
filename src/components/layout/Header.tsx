@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, theme }) => {
 
   return (
     <header
-      className="bo fixed left-0 top-0 z-40 flex w-full items-center justify-between border-b border-fromDark/20 px-7 py-2 backdrop-blur-[2px] dark:border-white/10 md:px-10 lg:px-14 2xl:px-32"
+      className="bo fixed left-0 top-0 z-40 flex w-full items-center justify-between border-b border-fromDark/20 px-7 py-2 backdrop-blur-[2px] dark:border-white/10  md:px-10 lg:px-14 2xl:px-32"
       style={
         theme === "dark"
           ? {
