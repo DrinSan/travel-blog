@@ -35,8 +35,11 @@ module.exports = {
         "3xl": "1850px",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        mono: ["Ubuntu Mono", "monospace"],
+        sans: ["var(--sans-font)"],
+        serif: ["var(--serif-font)"],
+        articleSerif: ["var(--article-serif-font)"],
+        condensedSansFont: ["var(--condensed-sans-font)"],
+        oswald: ["var(--oswald-font)"],
       },
       fontSize: {
         "3xs": [
@@ -57,6 +60,13 @@ module.exports = {
           ".7rem",
           {
             lineHeight: ".65rem",
+            letterSpacing: ".5px",
+          },
+        ],
+        "2sm": [
+          ".8rem",
+          {
+            lineHeight: "1.15rem",
             letterSpacing: ".5px",
           },
         ],

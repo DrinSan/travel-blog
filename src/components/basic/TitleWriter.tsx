@@ -46,8 +46,10 @@ const TitleWriter: React.FC<TitleWriterProps> = ({ text }) => {
   }, [text]);
   return (
     <>
-      <h2 className="inline font-sans text-4xl text-primary">{typedText}</h2>
-      <span className="animate-write -mb-1 ml-2 inline-block h-7 w-3 rounded-[3px] bg-primary" />
+      <h2 className="font-oswald inline text-3xl uppercase tracking-widest text-primary">
+        {typedText}
+      </h2>
+      <span className="-mb-1 ml-2 inline-block h-8 w-[14px] animate-write rounded-[3px] bg-primary" />
     </>
   );
 };
